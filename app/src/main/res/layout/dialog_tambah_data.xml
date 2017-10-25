@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kretek.erab.managementwarung.tambah_data"
+    android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Nama Barang"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputNamaBarang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="nama barang" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Harga Barang (Satuan)"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputHargaBarang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="per satuan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Jumlah Barang"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputJumlahBarang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="contoh : 10 Dus @10 pcs." />
+    </LinearLayout>
+</ScrollView>
