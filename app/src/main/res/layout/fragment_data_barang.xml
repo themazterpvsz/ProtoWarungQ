@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.kretek.erab.managementwarung.DataBarang">
 
+
     <!---
     Membuat RecyclerView
     !-->
@@ -17,8 +18,8 @@
     </android.support.v7.widget.RecyclerView>
 
     <!---
-    Membuat Icon FAB
-    !-->
+Membuat Icon FAB
+!-->
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/addData"
@@ -31,7 +32,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginEnd="20dp"
-        android:src="@drawable/ic_add_black_24dp"
+        app:srcCompat="@drawable/ic_add_black_24dp"
         />
 
 </RelativeLayout>

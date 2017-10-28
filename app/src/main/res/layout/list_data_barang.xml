@@ -19,15 +19,6 @@
         android:layout_marginBottom="3dp">
 
         <TextView
-            android:id="@+id/display_id_barang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:text="Text1"
-            android:textSize="18sp" />
-
-        <TextView
             android:id="@+id/display_nama_barang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

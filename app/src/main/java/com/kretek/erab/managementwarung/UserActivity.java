@@ -74,7 +74,7 @@ public class UserActivity extends AppCompatActivity
             case R.id.about:
                 AlertDialog.Builder a = new AlertDialog.Builder(this);
                 a.setTitle("About");
-                a.setMessage("Ini About App");
+                a.setMessage(R.string.about_app);
                 a.show();
                 break;
             case R.id.logout :

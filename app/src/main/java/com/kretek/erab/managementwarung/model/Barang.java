@@ -44,4 +44,6 @@ public class Barang {
     public void setJumlahBarang(String jumlahBarang) {
         this.jumlahBarang = jumlahBarang;
     }
+
+
 }

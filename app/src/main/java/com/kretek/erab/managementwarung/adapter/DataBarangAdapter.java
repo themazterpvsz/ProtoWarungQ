@@ -40,20 +40,20 @@ public class DataBarangAdapter extends RecyclerView.Adapter<DataBarangHolder> {
         return new DataBarangHolder(v);
     }
 
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener){
-        itemClickListener = onItemClickListener;
-    }
+//    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener){
+//        itemClickListener = onItemClickListener;
+//    }
     @Override
-    public void onBindViewHolder(DataBarangHolder holder, final int position) {
-        holder.idBarang.setText(barang.get(position).getId());
+    public void onBindViewHolder(final DataBarangHolder holder,int position) {
         holder.namaBarang.setText(barang.get(position).getNamaBarang());
         holder.hargaBarang.setText(barang.get(position).getHargaBarang());
         holder.jumlahBarang.setText(barang.get(position).getJumlahBarang());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (onTapListener != null) {
-                    onTapListener.OnTapView(position);
+                    onTapListener.OnTapView(holder.getAdapterPosition(), barang.get(holder.getAdapterPosition()).getNamaBarang());
                 }
             }
         });

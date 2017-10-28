@@ -9,14 +9,10 @@ import android.util.Log;
 
 import com.kretek.erab.managementwarung.model.User;
 
-/**
- * Created by Bare on 16/10/17.
- */
-
 public class DataHelper extends SQLiteOpenHelper {
 
     //DATABASE NAME AND DATABASE VERSION
-    private static final String DB_NAME = "WarungQ.db";
+        private static final String DB_NAME = "WarungQ.db";
     private static final int DB_VER = 1;
 
     //TABLE AND COLLUMS DATA
@@ -33,26 +29,26 @@ public class DataHelper extends SQLiteOpenHelper {
     private static final String USER_TABLE_MAIL = "Email";
     private static final String USER_TABLE_PASSWORD = "Password";
 
-    //SQL STRING TO MAKE TABLE DATA
+    //TABLE AND COLLUMS LAPORAN KEUANGAN
+    private static final String DT_TABLE_LAP = "laporan";
+    private static final String LAP_TABLE_NO = "no";
+    private static final String LAP_TABLE_NAME = "nl";
+    private static final String LAP_TABLE_JENIS = "jl";
+    private static final String LAP_TABLE_TOT =" tl";
+    private static final String LAP_TABLE_DAY = "hl";
+    private static final String LAP_TABLE_DATE = "dt";
+
+
+    //SQL STRING TO MAKE TABLE DATA, USER, AND LAPORAN
     private static final String MAKETABLEDATA =  DT_TABLE_DATA + "(" + DATA_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + DATA_COL_NAME + " TEXT NOT NULL, " + DATA_COL_PRICE + " TEXT NOT NULL, " + DATA_COL_TOT + " TEXT NOT NULL);";
+    private static final String MAKETABLEUSER = DT_TABLE_USER + "(" + USER_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + USER_TABLE_USER +" TEXT NOT NULL, "+ USER_TABLE_MAIL + " TEXT NULL, " + USER_TABLE_PASSWORD +" TEXT NOT NULL);";
+    private static final String MAKETABLELAP = DT_TABLE_LAP + "(" + LAP_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + LAP_TABLE_NAME + " TEXT NOT NULL," + LAP_TABLE_JENIS + " TEXT NOT NULL, " + LAP_TABLE_TOT + " TEXT NOT NULL,"+ LAP_TABLE_DAY + " DATETIME DEFAULT CURRENT_DATE, " + LAP_TABLE_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
 
-    //SQL STRING TO MAKE TABLE USER
-    private static final String MAKETABLEUSER = DT_TABLE_USER + "(" + USER_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + USER_TABLE_USER +" TEXT NOT NULL, "+ USER_TABLE_MAIL + " TEXT NOT NULL, " + USER_TABLE_PASSWORD +" TEXT NOT NULL);";
-
-    //STRING TO ADD GOODS EXAMPLE
+    //SAMPLE
     private static final int no = 0;
     private static final String example = "Dji Sam Soe";
     private static final String harga = "Rp. 12000";
     private static final String total = "10 Slop @10 Bks.";
-    //STRING ADMIN AND PASSWORD
-    private static final String ADMINUSER = "admin";
-    private static final String ADMINEMAIL = "generationoftroll@gmail.com";
-    private static final String ADMINPASS = "admon";
-
-    //STRING USER AND PASSWORD (Optional, research purpose only)
-    private static final String USER = "user";
-    private static final String EMAIL = "aaaa@aaa.com";
-    private static final String PASSWORD = "aaaaaa";
 
     //DataHelper
     public DataHelper(Context context) {
@@ -60,25 +56,6 @@ public class DataHelper extends SQLiteOpenHelper {
     }
 
     //THIS FUNCTION TO CHECK DATA USER
-    public boolean checkUser(String user){
-        String[] kolom = {USER_TABLE_NO};
-
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String selecton = USER_TABLE_MAIL + " = ?";
-        String[] selectionArgs = {user};
-
-        Cursor cursor = db.query(DT_TABLE_USER,kolom,selecton,selectionArgs,null,null,null);
-        int cursorCount = cursor.getCount();
-        cursor.close();
-        db.close();
-        if (cursorCount > 0 ){
-            return true;
-        }
-        return false;
-    }
-
-    //THIS TOO
     public boolean checkUser(String user,String pass){
         String[] kolom = {USER_TABLE_NO};
         SQLiteDatabase db = this.getReadableDatabase();
@@ -102,15 +79,17 @@ public class DataHelper extends SQLiteOpenHelper {
     //ONCREATE
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //execSQL to make table
+        //execSQL to make table data
         Log.d("Data" , "onCreate : " + MAKETABLEDATA);
         db.execSQL("CREATE TABLE " + MAKETABLEDATA);
+        //execSQL to make table user
         Log.d("User","onCreate : " + MAKETABLEUSER);
         db.execSQL("CREATE TABLE " + MAKETABLEUSER);
-        //execSQL to make admin
-        Log.d("User" , "onCreate: ADMIN" );
-        db.execSQL("INSERT INTO " + DT_TABLE_USER +"("+ USER_TABLE_USER + "," + USER_TABLE_MAIL +"," + USER_TABLE_PASSWORD +") VALUES('"+ ADMINUSER + "','"+ ADMINEMAIL + "','"+ ADMINPASS + "');");
-        //example some data
+        //execSQL to make table laporan
+        Log.d("Laporan", "onCreate : " + MAKETABLELAP);
+        db.execSQL("CREATE TABLE " + MAKETABLELAP);
+
+        //execSQL to make sample data
         db.execSQL("INSERT INTO " + DT_TABLE_DATA +"(" + DATA_COL_ID + "," + DATA_COL_NAME + "," + DATA_COL_PRICE +"," + DATA_COL_TOT+") VALUES('" + no + "','" + example + "','" + harga + "','" + total + "');");
     }
 
@@ -127,7 +106,6 @@ public class DataHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int usang, int lawas) {
         db.execSQL("CREATE TABLE DROP IF EXISTS " + MAKETABLEDATA);
-
         onCreate(db);
     }
 }

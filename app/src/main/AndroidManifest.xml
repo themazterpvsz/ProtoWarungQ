@@ -27,9 +27,15 @@
             android:name=".UserActivity"
             android:label="@string/title_activity_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Settings" />
-        <activity android:name=".TambahDataBarang" />
-        <activity android:name=".tambah_data"></activity>
+        <!--<activity-->
+            <!--android:name=".Settings"-->
+            <!--android:label="@string/title_activity_settings"-->
+            <!--android:parentActivityName=".UserActivity">-->
+            <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value="com.kretek.erab.managementwarung.UserActivity" />-->
+        <!--</activity>-->
+        <activity android:name=".RegistActivity"></activity>
     </application>
 
 </manifest>
