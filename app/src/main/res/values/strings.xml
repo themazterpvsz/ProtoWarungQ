@@ -15,31 +15,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="about_app">
-        <p>
-        WarungQ : Aplikasi manajemen Warung
-
-        Aplikasi ini Terdiri dari 3 Fitur, yaitu :
-
-            * Data Barang
-            * Laporan Keuangan
-            * Kontak Sales
-
-        untuk saat ini aplikasi masih dalam tahap pengembangan..
-
-        jika ada kritik dan saran langsung sadja kontak saya :
-
-            * gmail     : generationoftroll@gmail.com
-            * chatango  : themazterpvsz
-            * facebook  : http://www.facebook.com/hackerbaru
-
-        Sekian dan Terimakasih
-
-        ---Ikbar Rafif---
-
-        </p>
-
-    </string>
     <string-array name="jenis_lap">
         <item>Laporan Masuk</item>
         <item>Laporan Keluar</item>
@@ -49,22 +24,24 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_settings">Settings</string>
-
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
+    <!--Contoh Setting General -->
     <string name="pref_header_general">General</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
+    <string name="pref_auto_logout">Auto Logout</string>
+    <string name="pref_auto_logout_description">Jika aktif, maka ketika device Idle 5 menit, maka akan auto-logout
     </string>
 
     <string name="pref_title_display_name">Ganti Password</string>
     <string name="pref_default_display_name">John Smith</string>
+
+    <!-- Buat About -->
+    <string name="about_app_title">About This App</string>
+    <string name="about_app_subtitle"> WarungQ : Aplikasi manajemen Warung</string>
+    <string name="about_app_content_1">WarungQ, Aplikasi ini Mempunyai 3 Fitur, Yaitu : </string>
+    <string name="about_app_feature_1">* Data Barang</string>
+    <string name="about_app_feature_2">* Laporan Keuangan</string>
+    <string name="about_app_feature_3">* Contact Sales</string>
+    <string name="about_app_contet_2">Jika ada Kritik, atau Saran. Bisa menghubungi saya di :</string>
 
 
 </resources>

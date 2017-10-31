@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/listKeuangan"
-    android:layout_marginTop="4dp"
+    android:layout_marginTop="10dp"
+    app:cardCornerRadius="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginEnd="10dp"
     app:cardBackgroundColor="#ECECEC"
     android:orientation="vertical">
 

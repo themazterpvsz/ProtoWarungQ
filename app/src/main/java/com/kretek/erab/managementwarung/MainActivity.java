@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        }, 5000);
+        }, 2000);
 
 
         start = (Button) findViewById(R.id.start);

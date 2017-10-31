@@ -45,6 +45,7 @@ public class LaporanKeuangan extends Fragment {
         ViewGroup vg = (ViewGroup) inflater.inflate(R.layout.fragment_laporan_keuangan,container,false);
 
         recyclerView = vg.findViewById(R.id.recycler_laporan_keuangan);
+
         fab = vg.findViewById(R.id.addLaporan);
 
         ma = this;
@@ -64,7 +65,7 @@ public class LaporanKeuangan extends Fragment {
     private void refreshList() {
         dbHelper = new DataHelper(getContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        cursor = db.rawQuery("SELECT * FROM laporan ORDER BY no ASC",null);
+        cursor = db.rawQuery("SELECT * FROM laporan ORDER BY 1 ASC",null);
         if (cursor != null){
             if (cursor.moveToFirst()){
                 do {

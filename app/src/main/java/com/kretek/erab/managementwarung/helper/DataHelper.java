@@ -12,7 +12,7 @@ import com.kretek.erab.managementwarung.model.User;
 public class DataHelper extends SQLiteOpenHelper {
 
     //DATABASE NAME AND DATABASE VERSION
-        private static final String DB_NAME = "WarungQ.db";
+    private static final String DB_NAME = "WarungQ.db";
     private static final int DB_VER = 1;
 
     //TABLE AND COLLUMS DATA
@@ -38,11 +38,18 @@ public class DataHelper extends SQLiteOpenHelper {
     private static final String LAP_TABLE_DAY = "hl";
     private static final String LAP_TABLE_DATE = "dt";
 
+    //TABLE AND COLLUMS CONTACT SALES
+    private static final String DT_TABLE_CONTACT = "contact";
+    private static final String noSales = "no";
+    private static final String namaSales = "ns";
+    private static final String companySales = "cs";
+    private static final String phoneSales = "ps";
 
-    //SQL STRING TO MAKE TABLE DATA, USER, AND LAPORAN
+    //SQL STRING TO MAKE TABLE DATA, USER, LAPORAN AND CONTACT
     private static final String MAKETABLEDATA =  DT_TABLE_DATA + "(" + DATA_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + DATA_COL_NAME + " TEXT NOT NULL, " + DATA_COL_PRICE + " TEXT NOT NULL, " + DATA_COL_TOT + " TEXT NOT NULL);";
     private static final String MAKETABLEUSER = DT_TABLE_USER + "(" + USER_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + USER_TABLE_USER +" TEXT NOT NULL, "+ USER_TABLE_MAIL + " TEXT NULL, " + USER_TABLE_PASSWORD +" TEXT NOT NULL);";
     private static final String MAKETABLELAP = DT_TABLE_LAP + "(" + LAP_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + LAP_TABLE_NAME + " TEXT NOT NULL," + LAP_TABLE_JENIS + " TEXT NOT NULL, " + LAP_TABLE_TOT + " TEXT NOT NULL,"+ LAP_TABLE_DAY + " DATETIME DEFAULT CURRENT_DATE, " + LAP_TABLE_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
+    private static final String MAKETABLECONTACT =  DT_TABLE_CONTACT + "(" + noSales + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + namaSales +" TEXT NOT NULL, " + companySales +" TEXT NOT NULL, "+ phoneSales +" TEXT NOT NULL);";
 
     //SAMPLE
     private static final int no = 0;
@@ -67,7 +74,7 @@ public class DataHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(DT_TABLE_USER,kolom,selection,selectionArgs,null,null,null);
 
         int cursorCount = cursor.getCount();
-
+;
         cursor.close();
 
         if (cursorCount > 0 ) {
@@ -80,6 +87,8 @@ public class DataHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //execSQL to make table data
+
+
         Log.d("Data" , "onCreate : " + MAKETABLEDATA);
         db.execSQL("CREATE TABLE " + MAKETABLEDATA);
         //execSQL to make table user
@@ -88,6 +97,9 @@ public class DataHelper extends SQLiteOpenHelper {
         //execSQL to make table laporan
         Log.d("Laporan", "onCreate : " + MAKETABLELAP);
         db.execSQL("CREATE TABLE " + MAKETABLELAP);
+        //execSQL to make table contact
+        Log.d("Contact", "onCreate : " + MAKETABLECONTACT);
+        db.execSQL("CREATE TABLE " + MAKETABLECONTACT);
 
         //execSQL to make sample data
         db.execSQL("INSERT INTO " + DT_TABLE_DATA +"(" + DATA_COL_ID + "," + DATA_COL_NAME + "," + DATA_COL_PRICE +"," + DATA_COL_TOT+") VALUES('" + no + "','" + example + "','" + harga + "','" + total + "');");
@@ -105,7 +117,11 @@ public class DataHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int usang, int lawas) {
-        db.execSQL("CREATE TABLE DROP IF EXISTS " + MAKETABLEDATA);
+        db.execSQL("DROP TABLE IF EXISTS " + MAKETABLEDATA);
+        db.execSQL("DROP TABLE IF EXISTS " + MAKETABLEUSER);
+        db.execSQL("DROP TABLE IF EXISTS " + MAKETABLELAP);
+        db.execSQL("DROP TABLE IF EXISTS " + MAKETABLECONTACT);
+
         onCreate(db);
     }
 }

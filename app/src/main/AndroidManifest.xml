@@ -3,9 +3,11 @@
     package="com.kretek.erab.managementwarung">
 
     <!-- To auto-complete the email text field in the login form with the main's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+
 
     <application
         android:allowBackup="true"
@@ -27,15 +29,13 @@
             android:name=".UserActivity"
             android:label="@string/title_activity_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--<activity-->
-            <!--android:name=".Settings"-->
-            <!--android:label="@string/title_activity_settings"-->
-            <!--android:parentActivityName=".UserActivity">-->
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.kretek.erab.managementwarung.UserActivity" />-->
-        <!--</activity>-->
-        <activity android:name=".RegistActivity"></activity>
+        <activity android:name=".RegistActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="com.kretek.erab.managementwarung" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

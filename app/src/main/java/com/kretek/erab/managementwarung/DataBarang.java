@@ -58,7 +58,7 @@ public class DataBarang extends Fragment {
     public void RefreshList() {
         dbHelper = new DataHelper(getContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        cursor = db.rawQuery("SELECT * FROM data ORDER BY no ASC", null);
+        cursor = db.rawQuery("SELECT * FROM data ORDER BY 1 ASC", null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
@@ -79,6 +79,7 @@ public class DataBarang extends Fragment {
             public void OnTapView(final int position, final String nama) {
                 //TODO 24/10/17 : membuat 2 menu, yaitu Update Data dan Delete Data
                 //TODO : HARUS SELESAI DALAM WAKTU 2 HARI KEDEPAN!!
+                //UPDATE : KELAR!
 
                 final CharSequence[] dialogitem = {"Update Data", "Delete Data"};
                 AlertDialog.Builder option = new AlertDialog.Builder(getActivity());
@@ -123,6 +124,7 @@ public class DataBarang extends Fragment {
                                                 no.getText().toString() + "'");
 
                                         Toast.makeText(getActivity(), "Sukses Update Data", Toast.LENGTH_SHORT).show();
+                                        resetData();
                                         DataBarang.ma.RefreshList();
                                         adapter.notifyDataSetChanged();
                                         dialog.dismiss();

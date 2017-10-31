@@ -28,6 +28,7 @@ public class DataBarangAdapter extends RecyclerView.Adapter<DataBarangHolder> {
     List<Barang> barang = Collections.emptyList();
     private OnTapListener onTapListener;
     private AdapterView.OnItemClickListener itemClickListener;
+
     public DataBarangAdapter(Activity activity, List<Barang> barang){
         this.setHasStableIds(true);
         this.activity = activity;

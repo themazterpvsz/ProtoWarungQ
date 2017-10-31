@@ -1,12 +1,15 @@
 package com.kretek.erab.managementwarung;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.kretek.erab.managementwarung.model.Session;
@@ -72,9 +76,47 @@ public class UserActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.about:
+                LayoutInflater inflater = getLayoutInflater();
+                View v = inflater.inflate(R.layout.dialog_about,null);
+
+                ImageButton gotoFacebook = v.findViewById(R.id.iconFacebook);
+                ImageButton gotoGmail = v.findViewById(R.id.iconGmail);
+                ImageButton gotoChatango = v.findViewById(R.id.iconChatango);
+
+                gotoFacebook.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent gotoFacebook = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/hackerbaru"));
+                        startActivity(gotoFacebook);
+                    }
+                });
+
+                gotoGmail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent gotoGmail = new Intent(Intent.ACTION_VIEW,Uri.parse("generationoftroll@gmail.com"));
+                        gotoGmail.setClassName("com.google.android.gm","com.google.android.gm.ComposeActivityGmail");
+                        gotoGmail.putExtra(Intent.EXTRA_EMAIL,new String[] {"generationoftroll@gmail.com"});
+                        startActivity(gotoGmail);
+                    }
+                });
+
+                gotoChatango.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent gotoChatango = new Intent(Intent.ACTION_VIEW, Uri.parse("https://themazterpvsz.chatango.com"));
+                        startActivity(gotoChatango);
+                    }
+                });
                 AlertDialog.Builder a = new AlertDialog.Builder(this);
                 a.setTitle("About");
-                a.setMessage(R.string.about_app);
+                a.setView(v);
+                a.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
                 a.show();
                 break;
             case R.id.logout :
