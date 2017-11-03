@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class DataBarang extends Fragment {
     private RecyclerView recyclerView;
     private DataHelper dbHelper;
-    private ArrayList<Barang> arrayList = new ArrayList<Barang>();
+    private ArrayList<Barang> arrayList = new ArrayList<>();
     protected Cursor cursor;
     public TextView no;
     public static DataBarang ma;
@@ -56,7 +56,7 @@ public class DataBarang extends Fragment {
     }
 
     public void RefreshList() {
-        dbHelper = new DataHelper(getContext());
+        dbHelper = new DataHelper(getActivity());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM data ORDER BY 1 ASC", null);
         if (cursor != null) {
@@ -72,14 +72,11 @@ public class DataBarang extends Fragment {
             }
         }
 
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         adapter = new DataBarangAdapter(getActivity(), arrayList);
         adapter.setOnTapListener(new OnTapListener() {
             @Override
             public void OnTapView(final int position, final String nama) {
-                //TODO 24/10/17 : membuat 2 menu, yaitu Update Data dan Delete Data
-                //TODO : HARUS SELESAI DALAM WAKTU 2 HARI KEDEPAN!!
-                //UPDATE : KELAR!
 
                 final CharSequence[] dialogitem = {"Update Data", "Delete Data"};
                 AlertDialog.Builder option = new AlertDialog.Builder(getActivity());
@@ -195,7 +192,7 @@ public class DataBarang extends Fragment {
                                 inpHargaBarang.getText().toString() + "','" +
                                 inpJumlahBarang.getText().toString() + "')");
 
-                        Toast.makeText(getContext(), "SUKSES TAMBAH DATA", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "SUKSES TAMBAH DATA", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         resetData();
                         DataBarang.ma.RefreshList();

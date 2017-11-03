@@ -22,6 +22,19 @@
         <item>Laporan Tutup Warung</item>
     </string-array>
 
+    <string-array name="kataBijak">
+        <item>Jangan mengeluh di hadapan pelanggan apalagi menunjukkan emosi yang negatif.</item>
+        <item>Biar sedikit dan lambat asal selamat.</item>
+        <item>Pedagang harus memiliki daya tahan, mental, dan jiwa yang kuat.</item>
+        <item>Kerugian jangka pendek merupakan jalan yang dilalui untuk mendapatkan keuntungan jangka panjang.</item>
+        <item>Pedagang tidak boleh terlalu kaku. Namun sebaliknya, perlu memperbolehkan proses tawar-menawar</item>
+        <item>Kesabaran itu memang pahit, tetapi buahnya sangat manis.</item>
+        <item>Perjalanan seribu batu dimulai dengan langkah pertama.</item>
+        <item>Tahukah anda ? 85% kesuksesan karena sikap Positif dan 15% karena Kepandaiannya.</item>
+        <item>Jika ingin sukses, HARUS siap untuk DIUJI dan DIPROSES</item>
+        <item>Agar keuntungan terus bertambah, sebagian dari keuntungan harus disalurkan kepada mereka yang memerlukan</item>
+    </string-array>
+
     <string name="action_settings">Settings</string>
 
     <!--Contoh Setting General -->
@@ -37,6 +50,8 @@
     <!-- Buat About -->
     <string name="about_app_title">About This App</string>
     <string name="about_app_subtitle"> WarungQ : Aplikasi manajemen Warung</string>
+    <string name="about_app_subtitle_2">Aplikasi Pembantu Urusan Warung, Versi 1.0 (Beta)</string>
+    <string name="about_app_subtitle_3">Buatan : Ikbar Rafif , dengan Resource Seadanya dari google</string>
     <string name="about_app_content_1">WarungQ, Aplikasi ini Mempunyai 3 Fitur, Yaitu : </string>
     <string name="about_app_feature_1">* Data Barang</string>
     <string name="about_app_feature_2">* Laporan Keuangan</string>

@@ -1,6 +1,5 @@
 package com.kretek.erab.managementwarung;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     AlertDialog.Builder setPassword = new AlertDialog.Builder(MainActivity.this);
                     setPassword.setTitle("Buat Password Admin");
                     setPassword.setCancelable(false);
-                    setPassword.setMessage("Tampaknya anda baru disini, anda harus mengkonfigurasi akun Admin terlebih dahulu sebelum melanjutkan");
+                    setPassword.setMessage("Tampaknya anda baru disini, anda harus mengkonfigurasi akun terlebih dahulu sebelum melanjutkan");
                     setPassword.setPositiveButton("Oke", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -51,18 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, 2000);
-
-
-        start = (Button) findViewById(R.id.start);
-
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent a = new Intent(MainActivity.this, AuthActivity.class);
-                startActivity(a);
-            }
-        });
 
         }
 

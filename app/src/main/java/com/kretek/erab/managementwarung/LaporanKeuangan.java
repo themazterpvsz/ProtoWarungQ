@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -63,7 +63,7 @@ public class LaporanKeuangan extends Fragment {
     }
 
     private void refreshList() {
-        dbHelper = new DataHelper(getContext());
+        dbHelper = new DataHelper(getActivity());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM laporan ORDER BY 1 ASC",null);
         if (cursor != null){
@@ -74,13 +74,13 @@ public class LaporanKeuangan extends Fragment {
                     laporan.setNamaLaporan(cursor.getString(1));
                     laporan.setJenisLaporan(cursor.getString(2));
                     laporan.setTotal(cursor.getString(3));;
-                    laporan.setLastEdit(cursor.getString(5));
+                    laporan.setLastEdit(cursor.getString(4));
                     arrayList.add(laporan);
                 } while  (cursor.moveToNext());
             }
         }
 
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         adapter = new LaporanKeuanganAdapter(getActivity(),arrayList);
         adapter.setOnTapListener(new OnTapListener() {
             @Override

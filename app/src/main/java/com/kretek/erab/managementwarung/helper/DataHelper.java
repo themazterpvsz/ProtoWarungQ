@@ -9,6 +9,8 @@ import android.util.Log;
 
 import com.kretek.erab.managementwarung.model.User;
 
+import java.util.Vector;
+
 public class DataHelper extends SQLiteOpenHelper {
 
     //DATABASE NAME AND DATABASE VERSION
@@ -28,6 +30,7 @@ public class DataHelper extends SQLiteOpenHelper {
     private static final String USER_TABLE_USER = "User";
     private static final String USER_TABLE_MAIL = "Email";
     private static final String USER_TABLE_PASSWORD = "Password";
+    private static final String USER_TABLE_PP = "pp";
 
     //TABLE AND COLLUMS LAPORAN KEUANGAN
     private static final String DT_TABLE_LAP = "laporan";
@@ -47,15 +50,9 @@ public class DataHelper extends SQLiteOpenHelper {
 
     //SQL STRING TO MAKE TABLE DATA, USER, LAPORAN AND CONTACT
     private static final String MAKETABLEDATA =  DT_TABLE_DATA + "(" + DATA_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + DATA_COL_NAME + " TEXT NOT NULL, " + DATA_COL_PRICE + " TEXT NOT NULL, " + DATA_COL_TOT + " TEXT NOT NULL);";
-    private static final String MAKETABLEUSER = DT_TABLE_USER + "(" + USER_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + USER_TABLE_USER +" TEXT NOT NULL, "+ USER_TABLE_MAIL + " TEXT NULL, " + USER_TABLE_PASSWORD +" TEXT NOT NULL);";
+    private static final String MAKETABLEUSER = DT_TABLE_USER + "(" + USER_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + USER_TABLE_USER +" TEXT NOT NULL, "+ USER_TABLE_MAIL + " TEXT NULL, " + USER_TABLE_PASSWORD +" TEXT NOT NULL, "+ USER_TABLE_PP+" BLOB NULL);";
     private static final String MAKETABLELAP = DT_TABLE_LAP + "(" + LAP_TABLE_NO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + LAP_TABLE_NAME + " TEXT NOT NULL," + LAP_TABLE_JENIS + " TEXT NOT NULL, " + LAP_TABLE_TOT + " TEXT NOT NULL,"+ LAP_TABLE_DAY + " DATETIME DEFAULT CURRENT_DATE, " + LAP_TABLE_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
     private static final String MAKETABLECONTACT =  DT_TABLE_CONTACT + "(" + noSales + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + namaSales +" TEXT NOT NULL, " + companySales +" TEXT NOT NULL, "+ phoneSales +" TEXT NOT NULL);";
-
-    //SAMPLE
-    private static final int no = 0;
-    private static final String example = "Dji Sam Soe";
-    private static final String harga = "Rp. 12000";
-    private static final String total = "10 Slop @10 Bks.";
 
     //DataHelper
     public DataHelper(Context context) {
@@ -101,8 +98,6 @@ public class DataHelper extends SQLiteOpenHelper {
         Log.d("Contact", "onCreate : " + MAKETABLECONTACT);
         db.execSQL("CREATE TABLE " + MAKETABLECONTACT);
 
-        //execSQL to make sample data
-        db.execSQL("INSERT INTO " + DT_TABLE_DATA +"(" + DATA_COL_ID + "," + DATA_COL_NAME + "," + DATA_COL_PRICE +"," + DATA_COL_TOT+") VALUES('" + no + "','" + example + "','" + harga + "','" + total + "');");
     }
 
     //THIS METHOD WILL USE TO CHANGE PASSWORD ADMIN

@@ -24,12 +24,12 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
 
         getSupportActionBar().hide();
 
-        admin = (EditText) findViewById(R.id.createAdmin);
+        admin =  findViewById(R.id.createAdmin);
         admin.setTag(admin.getKeyListener());
         admin.setKeyListener(null);
-        password = (EditText) findViewById(R.id.createPassword);
+        password =  findViewById(R.id.createPassword);
 
-        add = (Button) findViewById(R.id.buatAdmin);
+        add =  findViewById(R.id.buatAdmin);
         add.setOnClickListener(this);
 
         dbHelper = new DataHelper(this);
